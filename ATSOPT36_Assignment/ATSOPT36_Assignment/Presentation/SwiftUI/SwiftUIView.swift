@@ -32,9 +32,10 @@ struct SwiftUIView: View {
                 case let .sport(items):
                     SportListView(items: items)
                 case let .kimGahyunBest(items):
-                    KimGaHyunBestListView(items: items)                
+                    KimGaHyunBestListView(items: items)
                 }
             }
+            FooterView()
         }
         .background(.black)
     }
