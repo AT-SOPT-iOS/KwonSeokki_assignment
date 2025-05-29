@@ -13,7 +13,17 @@ struct SwiftUIView: View {
         ScrollView {
             HeaderView()
             MenuView(items: items)
-            
+            ForEach(MockData.items, id: \.self) { type in
+                switch type {
+                case .thumbnail:
+                    Image(.main)
+                        .resizable()
+                case let .todayTving(movieList):
+                    MovieListView(items: movieList)
+                default:
+                    EmptyView()
+                }
+            }
         }
         .background(.black)
     }

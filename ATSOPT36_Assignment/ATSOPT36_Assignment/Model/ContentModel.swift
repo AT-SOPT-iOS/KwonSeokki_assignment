@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ContentModel {
+struct ContentModel: Hashable {    
     let title: String
     let description: String
     let rating: Double
