@@ -15,6 +15,7 @@ struct HeaderView: View {
             Image(.search)
             Image(.tvingLogo2)
         }
+        .padding(.horizontal, 11)
     }
 }
 
