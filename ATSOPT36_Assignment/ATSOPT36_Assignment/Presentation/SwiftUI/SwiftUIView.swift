@@ -31,8 +31,8 @@ struct SwiftUIView: View {
                         .padding(.vertical, 20)
                 case let .sport(items):
                     SportListView(items: items)
-                default:
-                    EmptyView()
+                case let .kimGahyunBest(items):
+                    KimGaHyunBestListView(items: items)                
                 }
             }
         }
