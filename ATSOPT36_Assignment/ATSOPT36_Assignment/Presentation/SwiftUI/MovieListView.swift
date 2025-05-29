@@ -9,10 +9,13 @@ import SwiftUI
 
 struct MovieListView: View {
     let items: [ContentModel]
+    let title: String
+    var isShowRanking = false
+    
     var body: some View {
         VStack(spacing: 13) {
             HStack {
-                Text("오늘의 티빙 TOP 20")
+                Text(title)
                     .foregroundStyle(.white)
                     .fontWeight(.semibold)
                 Spacer()
@@ -20,9 +23,12 @@ struct MovieListView: View {
             .padding(.leading, 15)
             .padding(.vertical, 10)
             ScrollView(.horizontal) {
-                HStack(spacing: 8) {
-                    ForEach(items, id: \.self) {
-                        Image(uiImage: $0.thumbnail)
+                HStack(alignment: .bottom, spacing: 8) {
+                    ForEach(Array(items.enumerated()), id: \.self.offset) { offset, item in
+                        if isShowRanking {
+                            Image("number\(offset+1)")
+                        }
+                        Image(uiImage: item.thumbnail)
                             .resizable()
                             .frame(width: 98, height: 146)
                             .cornerRadius(3)
@@ -35,5 +41,5 @@ struct MovieListView: View {
 }
 
 #Preview {
-    MovieListView(items: [])
+    MovieListView(items: [], title: "")
 }

@@ -19,9 +19,18 @@ struct SwiftUIView: View {
                     Image(.main)
                         .resizable()
                 case let .todayTving(items):
-                    MovieListView(items: items)
+                    MovieListView(items: items, title: "오늘의 티빙 TOP 20", isShowRanking: true)
                 case let .popularLive(items):
                     LivePopularListView(items: items)
+                case let .popularMovie(items):
+                    MovieListView(items: items, title: "실시간 인기 영화")
+                case .banner:
+                    Image(.banner)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.vertical, 20)
+                case let .sport(items):
+                    SportListView(items: items)
                 default:
                     EmptyView()
                 }
