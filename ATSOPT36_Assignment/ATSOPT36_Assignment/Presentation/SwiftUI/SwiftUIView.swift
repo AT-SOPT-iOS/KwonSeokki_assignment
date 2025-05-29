@@ -18,8 +18,10 @@ struct SwiftUIView: View {
                 case .thumbnail:
                     Image(.main)
                         .resizable()
-                case let .todayTving(movieList):
-                    MovieListView(items: movieList)
+                case let .todayTving(items):
+                    MovieListView(items: items)
+                case let .popularLive(items):
+                    LivePopularListView(items: items)
                 default:
                     EmptyView()
                 }
