@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -62,7 +63,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate: LoginViewControllerDelegate {
     func loginFlowDidComplete() {
         let mainViewController = MainViewController()
-        let navigationController = UINavigationController(rootViewController: mainViewController)
+        let hostingView = UIHostingController(rootView: SwiftUIView())
+        let navigationController = UINavigationController(rootViewController: hostingView)
+                
         window?.rootViewController = navigationController
     }
 }

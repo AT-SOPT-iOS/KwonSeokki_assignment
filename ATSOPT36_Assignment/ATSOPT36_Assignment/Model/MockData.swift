@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum MockData {
+enum MockData: Hashable {
     case thumbnail
     case banner
     case todayTving([ContentModel])
